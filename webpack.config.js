@@ -1,3 +1,4 @@
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -6,25 +7,17 @@ const __dirname = path.dirname(__filename);
 
 export default {
   entry: "./src/index.js",
-  plugins: [new HtmlWebpackPlugin({ template: "./index.html" })],
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+  plugins: [new HtmlWebpackPlugin()],
+  output: {filename: "bundle.js",
+    path: path.resolve(__dirname, "dist") 
   },
-  mode: "development",
+  
   module: {
     rules: [
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
       {
-        test: /\.(?:js|mjs|cjs)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            targets: "defaults",
-            presets: [["@babel/preset-env"]],
-          },
-        },
+        test: /\.(?:js|mjs|cdj)$/, loader: "babel-loader",
+        exclude: /node_modules/
       },
     ],
   },
