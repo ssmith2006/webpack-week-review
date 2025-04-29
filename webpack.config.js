@@ -7,11 +7,10 @@ const __dirname = path.dirname(__filename);
 
 export default {
   entry: "./src/index.js",
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin({template: "./index.html",})],
   output: {filename: "bundle.js",
     path: path.resolve(__dirname, "dist") 
   },
-  
   module: {
     rules: [
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
