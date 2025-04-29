@@ -15,3 +15,5 @@
 ![alt text](image-3.png)
 
 - Babel Transpiler
+--I do see a few arrow functions in this mode. 
+![alt text](image-4.png)
